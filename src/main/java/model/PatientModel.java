@@ -76,32 +76,20 @@ public class PatientModel extends AccessDB {
 		return patient;
 	}
 	
-	public PatientEntity updatePatient(int id) throws Exception {
+	public void updatePatient(int id, String nom, String prenom, String sexe, String dateDeNaissance, int numeroSecuriteSocial) throws Exception {
 
 		PatientEntity patient = new PatientEntity();
 		
 		Statement statement = this.connexion().createStatement();
-		ResultSet result;
 		
 		try {
-			result = statement.executeQuery("SELECT * FROM patient WHERE id=" + id);
-			while(result.next()) {
-				patient.setId(id);
-				patient.setAdresse_id(result.getInt("id"));
-				patient.setInfirmiere_id(result.getInt("infirmiere_id"));
-				patient.setNom(result.getString("nom"));
-				patient.setPrenom(result.getString("prenom"));
-				patient.setDateDeNaissance(result.getString("dateDeNaissance"));
-				patient.setSexe(result.getString("sexe"));
-				patient.setNumeroSecuriteSocial(result.getInt("numeroSecuriteSocial"));
-			}
+			statement.executeUpdate("UPDATE patient SET nom='" + nom + "', prenom='" + prenom + "', dateDeNaissance='" + dateDeNaissance + "', sexe='" + sexe + "', numeroSecuriteSocial='" + numeroSecuriteSocial + "' WHERE id=" + id);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			this.connexion().close();
 		}
-		
-		return patient;
+	}
 
 	public void delete(int id)  {
 		try {

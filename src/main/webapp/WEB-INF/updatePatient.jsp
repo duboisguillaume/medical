@@ -12,17 +12,18 @@
 <body>
 	<h1>Modifier le patient ${patient.nom} ${patient.prenom} </h1>
 	
-	<form method="POST" action="Update">
+	<form method="POST" action="update">
 		<div class="mb-3">
+			<input value="${patient.id}" name="id" hidden/>
 		  <label class="form-label">
 		  	Nom 
-		  	<input type="text" class="form-control" placeholder="${patient.nom}" name="nom">
+		  	<input type="text" class="form-control" value="${patient.nom}" name="nom">
 		  </label>
 		</div>
 		<div class="mb-3">
 		  <label class="form-label">
 		  	Prénom
-		  	<input type="text" class="form-control" placeholder="${patient.prenom}" name="prenom">
+		  	<input type="text" class="form-control" value="${patient.prenom}" name="prenom">
 		  </label>
 		</div>
 		<div class="mb-3">
@@ -44,19 +45,19 @@
 		<div class="mb-3">
 		  <label class="form-label">
 		  	Numéro de Sécurité sociale
-		  	<input type="number" class="form-control" placeholder="${patient.numeroSecuriteSocial}"  name="numeroSecuriteSocial">
+		  	<input type="number" class="form-control" value="${patient.numeroSecuriteSocial}"  name="numeroSecuriteSocial">
 		  </label>
 		</div>
 		<div class="mb-3">
 		  <label class="form-label">
 		  	Nom de l'infirmière
-		  	<input type="number" class="form-control" placeholder="A mettre !!!!" name="nameInfirmiere">
+		  	<input type="number" class="form-control" value="A mettre !!!!" name="nameInfirmiere">
 		  </label>
 		</div>
 		<div class="mb-3">
 		  <label class="form-label">
 		  	Adresse de l'infirmière
-		  	<input type="number" class="form-control" placeholder="A mettre !!!!" name="adresseInfirmiere">
+		  	<input type="number" class="form-control" value="A mettre !!!!" name="adresseInfirmiere">
 		  </label>
 		</div>
 		<div class="col-auto">
