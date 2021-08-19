@@ -49,13 +49,24 @@ public class UpdateController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getParameter("nom");
-		request.getParameter("prenom");
-		request.getParameter("sexe");
-		request.getParameter("dateDeNaissance");
-		request.getParameter("numeroSecuriteSociale");
-		request.getParameter("nameInfirmiere");
-		request.getParameter("adresseInfirmiere");
+		String id = request.getParameter("id");
+		String nom = request.getParameter("nom");
+		String prenom = request.getParameter("prenom");
+		String sexe = request.getParameter("sexe");
+		String dateDeNaissance = request.getParameter("dateDeNaissance");
+		String numeroSecuriteSocial = request.getParameter("numeroSecuriteSocial");
+		//request.getParameter("nameInfirmiere");
+		//request.getParameter("adresseInfirmiere");
+		PatientModel pm = new PatientModel();
+		
+		try {
+			pm.updatePatient(Integer.parseInt(id), nom, prenom, sexe, dateDeNaissance, Integer.parseInt(numeroSecuriteSocial));	
+			response.sendRedirect("patient");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		
 	}
 
 }
