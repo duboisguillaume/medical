@@ -43,7 +43,7 @@ public class RedirectController extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 		
-		request.getParameter("id_infirmier")
+		request.getParameter("id_infirmier");
 	}
 
 }

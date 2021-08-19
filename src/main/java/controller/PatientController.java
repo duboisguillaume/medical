@@ -32,7 +32,7 @@ public class PatientController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		PatientModel con = new PatientModel("jdbc:mysql://localhost:3307/medical", "root", "root");
+		PatientModel con = new PatientModel();
 		
 		try {
 			List<PatientEntity> patients = con.fetchAllPatient();

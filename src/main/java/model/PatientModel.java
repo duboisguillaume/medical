@@ -9,8 +9,8 @@ import java.util.ArrayList;
 
 public class PatientModel extends AccessDB {
 
-	public PatientModel(String url, String username, String password) {
-		super(url, username, password);
+	public PatientModel() {
+		super();
 	}
 
 

@@ -9,17 +9,15 @@ public class AccessDB {
 	private String username;
 	private String password;
 	
-	public AccessDB(String url, String username, String password ) {
-		this.url = url;
-		this.username = username;
-		this.password = password;
+	public AccessDB() {
+		this.url = "jdbc:mysql://localhost:3306/medical"; 
+		this.password = "root";
+		this.username = "root";
 	}
 	
 	/**
 	public void DbDAO() {
-		this.url = "jdbc:mysql://localhost:3307/medical"; 
-		this.password = "root";
-		this.username = "root";
+		
 	}
 	 * @throws Exception 
 	*/
