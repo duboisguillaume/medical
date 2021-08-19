@@ -26,6 +26,7 @@
 		<tr>
 			<td> ${ patient.nom } </td>
 			<td> ${ patient.prenom } </td>
+			<td> <a href="update?id=${patient.id}" class="btn btn-success btn-sm"><i class="bi bi-arrow-clockwise"></i></a>
 			<td> <a href="redirect?id=${ patient.id }" class="btn btn-danger btn-sm"> X </a> </td>
 		
 		</tr>
