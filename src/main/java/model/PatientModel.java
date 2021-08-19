@@ -48,6 +48,61 @@ public class PatientModel extends AccessDB {
 		return patients;
 	}
 
+	public PatientEntity onePatient(int id) throws Exception {
+
+		PatientEntity patient = new PatientEntity();
+		
+		Statement statement = this.connexion().createStatement();
+		ResultSet result;
+		
+		try {
+			result = statement.executeQuery("SELECT * FROM patient WHERE id=" + id);
+			while(result.next()) {
+				patient.setId(id);
+				patient.setAdresse_id(result.getInt("id"));
+				patient.setInfirmiere_id(result.getInt("infirmiere_id"));
+				patient.setNom(result.getString("nom"));
+				patient.setPrenom(result.getString("prenom"));
+				patient.setDateDeNaissance(result.getString("dateDeNaissance"));
+				patient.setSexe(result.getString("sexe"));
+				patient.setNumeroSecuriteSocial(result.getInt("numeroSecuriteSocial"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			this.connexion().close();
+		}
+		
+		return patient;
+	}
+	
+	public PatientEntity updatePatient(int id) throws Exception {
+
+		PatientEntity patient = new PatientEntity();
+		
+		Statement statement = this.connexion().createStatement();
+		ResultSet result;
+		
+		try {
+			result = statement.executeQuery("SELECT * FROM patient WHERE id=" + id);
+			while(result.next()) {
+				patient.setId(id);
+				patient.setAdresse_id(result.getInt("id"));
+				patient.setInfirmiere_id(result.getInt("infirmiere_id"));
+				patient.setNom(result.getString("nom"));
+				patient.setPrenom(result.getString("prenom"));
+				patient.setDateDeNaissance(result.getString("dateDeNaissance"));
+				patient.setSexe(result.getString("sexe"));
+				patient.setNumeroSecuriteSocial(result.getInt("numeroSecuriteSocial"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			this.connexion().close();
+		}
+		
+		return patient;
+
 	public void delete(int id)  {
 		try {
 			Statement st = this.connexion().createStatement();
