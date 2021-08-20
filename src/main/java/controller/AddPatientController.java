@@ -38,15 +38,24 @@ public class AddPatientController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.getParameter("nom");
-		request.getParameter("prenom");
-		request.getParameter("sexe");
-		request.getParameter("dateDeNaissance");
-		request.getParameter("numeroSecuriteSociale");
-		request.getParameter("nameInfirmiere");
-		request.getParameter("adresseInfirmiere");
+		String nom = request.getParameter("nom");
+		String prenom =request.getParameter("prenom");
+		String sexe = request.getParameter("sexe");
+		String dateDeNaissance=request.getParameter("dateDeNaissance");
+		String numeroSecuriteSociale =request.getParameter("numeroSecuriteSociale");
+//		String nameInfirmiere =request.getParameter("nameInfirmiere");
+//		String adresseInfirmiere = request.getParameter("adresseInfirmiere");
 		
+		System.out.println(nom + prenom + sexe + dateDeNaissance + numeroSecuriteSociale );
 		
+		PatientModel pm = new PatientModel();
+		
+		try {
+			pm.addPatient(nom,prenom,sexe,dateDeNaissance,Integer.parseInt(numeroSecuriteSociale));
+			response.sendRedirect("liste");
+		} catch (Exception e ){
+			e.printStackTrace();
+		}
 	}
 
 }

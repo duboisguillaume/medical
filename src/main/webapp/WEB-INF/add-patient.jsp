@@ -26,13 +26,13 @@
 		
 		<div class= "mb-3" >
 			<label> Date de naissance :
-				<input type="date" name="nom">
+				<input type="date" name="dateDeNaissance">
 			</label>
 		</div>
 		
 		<div class= "mb-3">
 			<label> Sexe :
-				<select class="form-select" aria-label="Default select example">
+				<select class="form-select" aria-label="Default select example" name="sexe">
 				  <option selected>vous etes :</option>
 				  <option value="1">Un homme </option>
 				  <option value="2">Une femme</option>
@@ -42,7 +42,7 @@
 		
 		<div class= "mb-3">
 			<label> Numero de Securite Sociale :
-				<input type="number" name="nom">
+				<input type="number" name="numeroSecuriteSociale">
 			</label>
 		</div>
 		
