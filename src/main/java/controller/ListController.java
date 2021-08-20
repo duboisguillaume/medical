@@ -9,8 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import Entity.DeplacementEntity;
 import Entity.InfirmiereEntity;
 import Entity.PatientEntity;
+import model.DeplacementModel;
 import model.InfirmiereModel;
 import model.PatientModel;
 
@@ -36,6 +38,7 @@ public class ListController extends HttpServlet {
 		
 		PatientModel con = new PatientModel();
 		InfirmiereModel inf = new InfirmiereModel();
+		DeplacementModel dep = new DeplacementModel();
 		
 		try {
 			List<PatientEntity> patients = con.fetchAllPatient();
@@ -43,6 +46,9 @@ public class ListController extends HttpServlet {
 
 			List<InfirmiereEntity> infirmieres = inf.fetchAllInfirmiere();
 			request.setAttribute("infirmieres", infirmieres);
+			
+			List<DeplacementEntity> deplacements = dep.fetchAllDeplacement();
+			request.setAttribute("deplacements", deplacements);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
