@@ -63,14 +63,18 @@ public class AddPatientController extends HttpServlet {
 		String dateDeNaissance=request.getParameter("dateDeNaissance");
 		String numeroSecuriteSociale =request.getParameter("numeroSecuriteSociale");
 		String infirmiere_id =request.getParameter("nameInfirmiere");
-		String adresse_patient = request.getParameter("patientAdresse");
 		
-		System.out.println(numeroSecuriteSociale + " " + adresse_patient );
+		String numero = request.getParameter("numero");
+		String rue = request.getParameter("rue");
+		String cp = request.getParameter("cp");
+		String ville = request.getParameter("ville");
+		
+		System.out.println(numeroSecuriteSociale + " " + rue );
 		
 		PatientModel pm = new PatientModel();
 		
 		try {
-			pm.addPatient(nom,prenom,sexe,dateDeNaissance,Integer.parseInt(numeroSecuriteSociale), Integer.parseInt(infirmiere_id), adresse_patient );
+			pm.addPatient(nom,prenom,sexe,dateDeNaissance,Integer.parseInt(numeroSecuriteSociale), Integer.parseInt(infirmiere_id), numero,rue,Integer.parseInt(cp),ville );
 			response.sendRedirect("liste");
 		} catch (Exception e ){
 			e.printStackTrace();
