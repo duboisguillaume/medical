@@ -1,11 +1,8 @@
 package model;
 
 import Entity.InfirmiereEntity;
-import Entity.PatientEntity;
 
 import java.util.List;
-
-import com.mysql.cj.xdevapi.PreparableStatement;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -58,7 +55,7 @@ public class InfirmiereModel extends AccessDB{
 		ResultSet result;
 		
 		try {
-			result = statement.executeQuery("SELECT * FROM infirmiere WHERE id=" + id);
+			result = statement.executeQuery("SELECT * FROM infirmiere as i, adresse as a WHERE i.adresse_id=a.id and i.id=" + id);
 			while(result.next()) {
 				infirmiere.setId(id);
 				infirmiere.setAdresse_id(result.getInt("id"));
@@ -67,8 +64,13 @@ public class InfirmiereModel extends AccessDB{
 				infirmiere.setPrenom(result.getString("prenom"));
 				infirmiere.setTelPerso(result.getInt("telPerso"));
 				infirmiere.setTelPro(result.getInt("telPro"));
+				infirmiere.setNumero(result.getString("numero"));
+				infirmiere.setRue(result.getString("rue"));
+				infirmiere.setCp(result.getInt("cp"));
+				infirmiere.setVille(result.getString("ville"));
 			}
 		}
+		
 		catch (SQLException e) {
 				e.printStackTrace();
 			} finally {
@@ -79,6 +81,34 @@ public class InfirmiereModel extends AccessDB{
 
 
 	public void addInfirmiere(int numeroProfessionnel, String nom, String prenom, int telPro, int telPerso, String numero, String rue, int cp, String ville) throws Exception{
+		Connection con = this.connexion();
+		int adresse_id = addAdresse(numero, rue, cp, ville);
+		Statement statement = con.createStatement();
+		try {
+			statement.executeUpdate("INSERT INTO infirmiere (adresse_id, numeroProfessionnel, nom, prenom, telPro, telPerso) VALUES ( "+adresse_id+", " + numeroProfessionnel + ", '" + nom + "', '" + prenom + "', " + telPro + ", " + telPerso + " )");
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			this.connexion().close();
+		}
+  }
+    
+	public void delete(int id)  {
+		try {
+			Statement st = this.connexion().createStatement();
+			st.executeUpdate("UPDATE infirmiere set status='0' where id="+id+"");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+	public int addAdresse(String numero, String rue, int cp, String ville) throws Exception {
 		Connection con = this.connexion();
 		PreparedStatement ps = con.prepareStatement("select * from adresse where numero=? and rue=? and cp=? and ville=? ");
 		ps.setString(1,numero);
@@ -107,38 +137,15 @@ public class InfirmiereModel extends AccessDB{
 			}
 			
 		}
-		Statement statement = con.createStatement();
-		try {
-			statement.executeUpdate("INSERT INTO infirmiere (adresse_id, numeroProfessionnel, nom, prenom, telPro, telPerso) VALUES ( "+adresse_id+", " + numeroProfessionnel + ", '" + nom + "', '" + prenom + "', " + telPro + ", " + telPerso + " )");
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			this.connexion().close();
-		}
-  }
-    
-	public void delete(int id)  {
-		try {
-			Statement st = this.connexion().createStatement();
-			st.executeUpdate("UPDATE infirmiere set status='0' where id="+id+"");
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
+		return adresse_id;
 	}
 
-
-	public void updateInfirmiere(int id, String nom, String prenom, String numPro, int telPerso, int telPro) throws Exception {
+	public void updateInfirmiere(int id, String nom, String prenom, String numPro, int telPerso, int telPro,String numero, String rue, int cp, String ville) throws Exception {
 		
-		
+		int adresse_id = addAdresse(numero, rue, cp, ville);
 		try {
 			Statement statement = this.connexion().createStatement();
-			statement.executeUpdate("UPDATE infirmiere SET nom='" + nom + "', prenom='" + prenom + "', numeroProfessionnel='" + numPro + "', telPerso='" + telPerso + "', telPro='" + telPro + "' WHERE id=" + id);
+			statement.executeUpdate("UPDATE infirmiere SET nom='" + nom + "', prenom='" + prenom + "', numeroProfessionnel='" + numPro + "', telPerso='" + telPerso + "', telPro='" + telPro + "', adresse_id="+ adresse_id+" WHERE id=" + id);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {

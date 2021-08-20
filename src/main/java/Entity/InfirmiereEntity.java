@@ -9,6 +9,10 @@ public class InfirmiereEntity {
 	private String prenom;
 	private int telPro;
 	private int telPerso;
+	private String numero;
+	private String rue;
+	private int cp;
+	private String ville;
 	
 	public InfirmiereEntity() {
 	};
@@ -23,6 +27,24 @@ public class InfirmiereEntity {
 		this.prenom = prenom;
 		this.telPro = telPro;
 		this.telPerso = telPerso;
+	}
+	
+	
+
+	public InfirmiereEntity(int id, int adresse_id, int numeroProfessionnel, String nom, String prenom, int telPro,
+			int telPerso, String numero, String rue, int cp, String ville) {
+		super();
+		this.id = id;
+		this.adresse_id = adresse_id;
+		this.numeroProfessionnel = numeroProfessionnel;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.telPro = telPro;
+		this.telPerso = telPerso;
+		this.numero = numero;
+		this.rue = rue;
+		this.cp = cp;
+		this.ville = ville;
 	}
 
 	public int getId() {
@@ -79,6 +101,38 @@ public class InfirmiereEntity {
 
 	public void setTelPerso(int telPerso) {
 		this.telPerso = telPerso;
+	}
+
+	public String getNumero() {
+		return numero;
+	}
+
+	public void setNumero(String numero) {
+		this.numero = numero;
+	}
+
+	public String getRue() {
+		return rue;
+	}
+
+	public void setRue(String rue) {
+		this.rue = rue;
+	}
+
+	public int getCp() {
+		return cp;
+	}
+
+	public void setCp(int cp) {
+		this.cp = cp;
+	}
+
+	public String getVille() {
+		return ville;
+	}
+
+	public void setVille(String ville) {
+		this.ville = ville;
 	}
 	
 	
