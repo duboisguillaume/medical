@@ -33,6 +33,10 @@
 		</c:forEach>
 	</table>
 	
+	
+		<a href="addPatient" class="btn btn-primary mb-3">Ajouter un Patient</a>
+	
+	
 	<h2>Les infirmières</h2>
 	<table class="table">
 		<tr>
