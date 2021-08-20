@@ -17,6 +17,9 @@
 <body>
 	<h1>Listes</h1>
 	
+
+	
+		
 	<div class="container">
 		<h2>Les patients</h2>	
 		<table class="table">
@@ -36,6 +39,7 @@
 			</tr>
 			</c:forEach>
 		</table>
+    <a href="addPatient" class="btn btn-primary mb-3">Ajouter un Patient</a>
 	</div>
 	
 	<div class="container">

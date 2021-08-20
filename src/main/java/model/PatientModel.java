@@ -1,7 +1,7 @@
 package model;
 import Entity.PatientEntity;
 import java.util.List;
-
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -73,6 +73,32 @@ public class PatientModel extends AccessDB {
 		
 		return patient;
 	}
+	
+	public void addPatient( String nom, String prenom, String sexe, String dateDeNaissance, int numeroSecuriteSocial) throws Exception {
+		
+		try {
+			String query = "INSERT INTO patient (nom, prenom, sexe, dateDeNaissance, numeroSecuriteSocial ) VALUES (?, ?, ?, ?,?)";
+			
+			PreparedStatement pstmt = this.connexion().prepareStatement(query);
+			pstmt.setString(1,nom);
+			pstmt.setString(2,prenom);
+			pstmt.setString(3,sexe);
+			pstmt.setString(4,dateDeNaissance);
+			pstmt.setInt(5,numeroSecuriteSocial);
+			
+			
+			pstmt.executeUpdate();
+			pstmt.close();
+		}catch (Exception e){
+			e.printStackTrace();	
+		}finally {
+			this.connexion().close();
+		}
+		
+		
+	
+		
+}
 	
 	public void updatePatient(int id, String nom, String prenom, String sexe, String dateDeNaissance, int numeroSecuriteSocial) throws Exception {
 		
