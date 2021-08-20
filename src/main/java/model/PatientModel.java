@@ -73,10 +73,10 @@ public class PatientModel extends AccessDB {
 		return patient;
 	}
 	
-	public void addPatient( String nom, String prenom, String sexe, String dateDeNaissance, int numeroSecuriteSocial, int infirmiere_id ) throws Exception {
+	public void addPatient( String nom, String prenom, String sexe, String dateDeNaissance, int numeroSecuriteSocial, int infirmiere_id, String patientAdresse ) throws Exception {
 		
 		try {
-			String query = "INSERT INTO patient (nom, prenom, sexe, dateDeNaissance, numeroSecuriteSocial, infirmiere_id  ) VALUES (?, ?, ?, ?,?,?)";
+			String query = "INSERT INTO patient (nom, prenom, sexe, dateDeNaissance, numeroSecuriteSocial, infirmiere_id,   ) VALUES (?, ?, ?, ?,?,?)";
 			
 			PreparedStatement pstmt = this.connexion().prepareStatement(query);
 			pstmt.setString(1,nom);
@@ -85,6 +85,7 @@ public class PatientModel extends AccessDB {
 			pstmt.setString(4,dateDeNaissance);
 			pstmt.setInt(5,numeroSecuriteSocial);
 			pstmt.setInt(6, infirmiere_id);
+			pstmt.setString(7,patientAdresse );
 			
 			
 			
