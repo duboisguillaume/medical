@@ -42,11 +42,15 @@ public class AddInfirmiereController extends HttpServlet {
 		String prenom = request.getParameter("prenom");
 		String telPro = request.getParameter("telPro");
 		String telPerso = request.getParameter("telPerso");
+		String numero = request.getParameter("numero");
+		String rue = request.getParameter("rue");
+		String cp = request.getParameter("cp");
+		String ville = request.getParameter("ville");
 		
 		InfirmiereModel pm = new InfirmiereModel();
 		
 		try {
-			pm.addInfirmiere(Integer.parseInt(numeroProfessionnel), nom, prenom, Integer.parseInt(telPro), Integer.parseInt(telPerso));	
+			pm.addInfirmiere(Integer.parseInt(numeroProfessionnel), nom, prenom, Integer.parseInt(telPro), Integer.parseInt(telPerso),numero,rue,Integer.parseInt(cp),ville);	
 			response.sendRedirect("liste");
 		} catch (Exception e) {
 			e.printStackTrace();
