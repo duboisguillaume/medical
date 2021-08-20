@@ -50,7 +50,7 @@ public class InfirmiereModel extends AccessDB{
 	}
 	
 
-	public InfirmiereEntity oneInfirmiere(int id) throws Exception {
+	public InfirmiereEntity oneInfirmiere(int id) throws Exception { 
 
 		InfirmiereEntity infirmiere = new InfirmiereEntity();
 		

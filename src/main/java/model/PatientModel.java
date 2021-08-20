@@ -24,7 +24,6 @@ public class PatientModel extends AccessDB {
 		try {
 			result = statement.executeQuery("SELECT * FROM patient where status='1'");
 			while(result.next()) {
-				System.out.println(result.getInt("status"));
 					patients.add(new PatientEntity(
 							result.getInt("id"),
 							result.getInt("adresse_id"),
@@ -74,10 +73,10 @@ public class PatientModel extends AccessDB {
 		return patient;
 	}
 	
-	public void addPatient( String nom, String prenom, String sexe, String dateDeNaissance, int numeroSecuriteSocial) throws Exception {
+	public void addPatient( String nom, String prenom, String sexe, String dateDeNaissance, int numeroSecuriteSocial, int infirmiere_id) throws Exception {
 		
 		try {
-			String query = "INSERT INTO patient (nom, prenom, sexe, dateDeNaissance, numeroSecuriteSocial ) VALUES (?, ?, ?, ?,?)";
+			String query = "INSERT INTO patient (nom, prenom, sexe, dateDeNaissance, numeroSecuriteSocial, infirmiere_id  ) VALUES (?, ?, ?, ?,?,?)";
 			
 			PreparedStatement pstmt = this.connexion().prepareStatement(query);
 			pstmt.setString(1,nom);
@@ -85,6 +84,7 @@ public class PatientModel extends AccessDB {
 			pstmt.setString(3,sexe);
 			pstmt.setString(4,dateDeNaissance);
 			pstmt.setInt(5,numeroSecuriteSocial);
+			pstmt.setInt(6, infirmiere_id);
 			
 			
 			pstmt.executeUpdate();
