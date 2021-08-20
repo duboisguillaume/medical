@@ -5,6 +5,10 @@ import Entity.PatientEntity;
 
 import java.util.List;
 
+import com.mysql.cj.xdevapi.PreparableStatement;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -63,7 +67,9 @@ public class InfirmiereModel extends AccessDB{
 				infirmiere.setPrenom(result.getString("prenom"));
 				infirmiere.setTelPerso(result.getInt("telPerso"));
 				infirmiere.setTelPro(result.getInt("telPro"));
-			} catch (SQLException e) {
+			}
+		}
+		catch (SQLException e) {
 				e.printStackTrace();
 			} finally {
 				this.connexion().close();
@@ -72,14 +78,38 @@ public class InfirmiereModel extends AccessDB{
 	}
 
 
-	public void addInfirmiere( int numeroProfessionnel, String nom, String prenom, int telPro, int telPerso) throws Exception{
-		
-		InfirmiereEntity patient = new InfirmiereEntity();
-		
-		Statement statement = this.connexion().createStatement();
-		
+	public void addInfirmiere(int numeroProfessionnel, String nom, String prenom, int telPro, int telPerso, String numero, String rue, int cp, String ville) throws Exception{
+		Connection con = this.connexion();
+		PreparedStatement ps = con.prepareStatement("select * from adresse where numero=? and rue=? and cp=? and ville=? ");
+		ps.setString(1,numero);
+		ps.setString(2,rue);
+		ps.setInt(3, cp);
+		ps.setString(4,ville);
+		int adresse_id=0;
+		ResultSet rs = ps.executeQuery();
+		if(rs.next()) {
+			adresse_id = rs.getInt("id");
+		}
+		else {
+			PreparedStatement ps2 = con.prepareStatement("insert into adresse(numero,rue,cp,ville) values(?,?,?,?)",Statement.RETURN_GENERATED_KEYS);
+			ps2.setString(1,numero);
+			ps2.setString(2,rue);
+			ps2.setInt(3, cp);
+			ps2.setString(4,ville);
+			ps2.executeUpdate();
+			try (ResultSet generatedKeys = ps2.getGeneratedKeys()) {
+	            if (generatedKeys.next()) {
+	            	adresse_id = generatedKeys.getInt(1);
+	            }
+	            else {
+	                throw new SQLException("Creating adress failed, no ID obtained.");
+	            }
+			}
+			
+		}
+		Statement statement = con.createStatement();
 		try {
-			statement.executeUpdate("INSERT INTO infirmiere (adresse_id, numeroProfessionnel, nom, prenom, telPro, telPerso) VALUES ( 4, " + numeroProfessionnel + ", '" + nom + "', '" + prenom + "', " + telPro + ", " + telPerso + " )");
+			statement.executeUpdate("INSERT INTO infirmiere (adresse_id, numeroProfessionnel, nom, prenom, telPro, telPerso) VALUES ( "+adresse_id+", " + numeroProfessionnel + ", '" + nom + "', '" + prenom + "', " + telPro + ", " + telPerso + " )");
 
 		} catch (SQLException e) {
 			e.printStackTrace();
