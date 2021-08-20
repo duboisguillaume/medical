@@ -1,7 +1,7 @@
 package model;
 import Entity.PatientEntity;
 import java.util.List;
-
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -22,10 +22,9 @@ public class PatientModel extends AccessDB {
 		ResultSet result;
 
 		try {
-			result = statement.executeQuery("SELECT * FROM patient");
+			result = statement.executeQuery("SELECT * FROM patient where status='1'");
 			while(result.next()) {
 				System.out.println(result.getInt("status"));
-				if(result.getInt("status")!=0) {
 					patients.add(new PatientEntity(
 							result.getInt("id"),
 							result.getInt("adresse_id"),
@@ -37,7 +36,6 @@ public class PatientModel extends AccessDB {
 							result.getInt("numeroSecuriteSocial")
 							));	
 				}
-			}
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -76,9 +74,33 @@ public class PatientModel extends AccessDB {
 		return patient;
 	}
 	
+	public void addPatient( String nom, String prenom, String sexe, String dateDeNaissance, int numeroSecuriteSocial) throws Exception {
+		
+		try {
+			String query = "INSERT INTO patient (nom, prenom, sexe, dateDeNaissance, numeroSecuriteSocial ) VALUES (?, ?, ?, ?,?)";
+			
+			PreparedStatement pstmt = this.connexion().prepareStatement(query);
+			pstmt.setString(1,nom);
+			pstmt.setString(2,prenom);
+			pstmt.setString(3,sexe);
+			pstmt.setString(4,dateDeNaissance);
+			pstmt.setInt(5,numeroSecuriteSocial);
+			
+			
+			pstmt.executeUpdate();
+			pstmt.close();
+		}catch (Exception e){
+			e.printStackTrace();	
+		}finally {
+			this.connexion().close();
+		}
+		
+		
+	
+		
+}
+	
 	public void updatePatient(int id, String nom, String prenom, String sexe, String dateDeNaissance, int numeroSecuriteSocial) throws Exception {
-
-		PatientEntity patient = new PatientEntity();
 		
 		Statement statement = this.connexion().createStatement();
 		

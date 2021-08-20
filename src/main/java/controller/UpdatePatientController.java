@@ -1,14 +1,12 @@
 package controller;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import Entity.PatientEntity;
 import model.PatientModel;
@@ -16,14 +14,14 @@ import model.PatientModel;
 /**
  * Servlet implementation class UpdateController
  */
-@WebServlet(name = "Update", urlPatterns = { "/update" })
-public class UpdateController extends HttpServlet {
+@WebServlet(name = "UpdatePatient", urlPatterns = { "/updatePatient" })
+public class UpdatePatientController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UpdateController() {
+    public UpdatePatientController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -61,7 +59,7 @@ public class UpdateController extends HttpServlet {
 		
 		try {
 			pm.updatePatient(Integer.parseInt(id), nom, prenom, sexe, dateDeNaissance, Integer.parseInt(numeroSecuriteSocial));	
-			response.sendRedirect("patient");
+			response.sendRedirect("liste");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

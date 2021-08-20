@@ -17,6 +17,9 @@
 <body>
 	<h1>Listes</h1>
 	
+
+	
+		
 	<div class="container">
 		<h2>Les patients</h2>	
 		<table class="table">
@@ -30,12 +33,13 @@
 			<tr>
 				<td> ${ patient.nom } </td>
 				<td> ${ patient.prenom } </td>
-				<td> <a href="update?id=${patient.id}" class="btn btn-success btn-sm"><i class="bi bi-arrow-clockwise"></i></a>
-				<td> <a href="deletePatient?id=${ patient.id }" class="btn btn-danger btn-sm"> X </a> </td>
+				<td> <a href="updatePatient?id=${patient.id}" class="btn btn-success btn-sm"><i class="bi bi-arrow-clockwise"></i></a>
+				<td> <a href="deletePatient?id=${patient.id}" class="btn btn-danger btn-sm"> X </a> </td>
 			
 			</tr>
 			</c:forEach>
 		</table>
+    <a href="addPatient" class="btn btn-primary mb-3">Ajouter un Patient</a>
 	</div>
 	
 	<div class="container">
@@ -52,8 +56,8 @@
 			<tr>
 				<td> ${ infirmiere.nom } </td>
 				<td> ${ infirmiere.prenom } </td>
-				<td> <a href="" class="btn btn-success btn-sm"><i class="bi bi-arrow-clockwise"></i></a>
-				<td> <a href="" class="btn btn-danger btn-sm"> X </a> </td>
+				<td> <a href="updateInfirmiere?id=${infirmiere.id}" class="btn btn-success btn-sm"><i class="bi bi-arrow-clockwise"></i></a>
+				<td> <a href="deleteInfirmiere?id=${infirmiere.id}" class="btn btn-danger btn-sm"> X </a> </td>
 			
 			</tr>
 			</c:forEach>
