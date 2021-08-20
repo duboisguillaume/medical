@@ -38,3 +38,39 @@ h1{
 .blocPatients{
 	border-right: 2px solid rgb(178,178,178);
 }
+
+@media screen and (max-width: 767px){
+	body{
+		width: 95%;
+	}
+	h1{
+		margin-bottom: 30px;
+	}
+	.mesListes{
+		flex-direction: column;
+		padding-bottom : 30px;
+	}
+	.add{
+		font-size: 20px;
+	}
+	.bloc{
+		padding: 20px;
+	}
+	.blocPatients{
+		border-right: none;
+		border-bottom: 2px solid rgb(178,178,178);
+	}
+	th, td{
+		font-size: 12px;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 991px){
+	body{
+		width: 95%;
+	}
+}
+	
+	
+	
+	
