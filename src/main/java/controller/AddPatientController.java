@@ -46,8 +46,6 @@ public class AddPatientController extends HttpServlet {
 //		String nameInfirmiere =request.getParameter("nameInfirmiere");
 //		String adresseInfirmiere = request.getParameter("adresseInfirmiere");
 		
-		System.out.println(nom + prenom + sexe + dateDeNaissance + numeroSecuriteSociale );
-		
 		PatientModel pm = new PatientModel();
 		
 		try {

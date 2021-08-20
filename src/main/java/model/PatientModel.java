@@ -87,7 +87,8 @@ public class PatientModel extends AccessDB {
 			pstmt.setString(3,sexe);
 			pstmt.setString(4,dateDeNaissance);
 			pstmt.setInt(5,numeroSecuriteSocial);
-			System.out.println("HEREEEE");
+			
+			
 			pstmt.executeUpdate();
 			pstmt.close();
 		}catch (Exception e){
