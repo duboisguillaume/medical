@@ -46,7 +46,7 @@ public class InfirmiereModel extends AccessDB{
 	}
 	
 
-	public InfirmiereEntity oneInfirmiere(int id) throws Exception {
+	public InfirmiereEntity oneInfirmiere(int id) throws Exception { 
 
 		InfirmiereEntity infirmiere = new InfirmiereEntity();
 		
@@ -63,7 +63,9 @@ public class InfirmiereModel extends AccessDB{
 				infirmiere.setPrenom(result.getString("prenom"));
 				infirmiere.setTelPerso(result.getInt("telPerso"));
 				infirmiere.setTelPro(result.getInt("telPro"));
-			}} catch (SQLException e) {
+
+			}
+			} catch (SQLException e) {
 				e.printStackTrace();
 			} finally {
 				this.connexion().close();
