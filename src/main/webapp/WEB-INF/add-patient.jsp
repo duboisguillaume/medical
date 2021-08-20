@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,14 +51,25 @@
 		
 		<div class= "mb-3">
 			<label> Adresse :
-				
+				<select>
+					<option selected></option>
+				</select>
 			</label>
 		</div>
 		
 		<div class= "mb-3">
+			
+			
 			<label> Nom de l'infirmiere :
-				
+				<select class="form-select" aria-label="Default select example" name="nameInfirmiere">
+					<c:forEach items="${ infirmieres }" var="infirmiere">
+							<option selected value="${infirmiere.id}" name="infirmiere_id" >${infirmiere.nom}</option>
+					</c:forEach>
+				</select>
 			</label>
+			
+					
+			
 		</div>
 		
 		<button type="submit" class="btn btn-primary mb-3">Envoyer</button>
