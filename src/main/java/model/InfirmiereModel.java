@@ -46,6 +46,28 @@ public class InfirmiereModel extends AccessDB{
 	}
 	
 
+	public InfirmiereEntity oneInfirmiere(int id) throws Exception {
+
+		InfirmiereEntity infirmiere = new InfirmiereEntity();
+		
+		Statement statement = this.connexion().createStatement();
+		ResultSet result;
+		
+		try {
+			result = statement.executeQuery("SELECT * FROM infirmiere WHERE id=" + id);
+			while(result.next()) {
+				infirmiere.setId(id);
+				infirmiere.setAdresse_id(result.getInt("id"));
+				infirmiere.setNumeroProfessionnel(result.getInt("numeroProfessionnel"));
+				infirmiere.setNom(result.getString("nom"));
+				infirmiere.setPrenom(result.getString("prenom"));
+				infirmiere.setTelPerso(result.getInt("telPerso"));
+				infirmiere.setTelPro(result.getInt("telPro"));
+			}
+      return infirmiere;
+	}
+
+
 	public void addInfirmiere( int numeroProfessionnel, String nom, String prenom, int telPro, int telPerso) throws Exception{
 		
 		InfirmiereEntity patient = new InfirmiereEntity();
@@ -54,12 +76,14 @@ public class InfirmiereModel extends AccessDB{
 		
 		try {
 			statement.executeUpdate("INSERT INTO infirmiere (adresse_id, numeroProfessionnel, nom, prenom, telPro, telPerso) VALUES ( 4, " + numeroProfessionnel + ", '" + nom + "', '" + prenom + "', " + telPro + ", " + telPerso + " )");
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			this.connexion().close();
 		}
-  
+  }
+    
 	public void delete(int id)  {
 		try {
 			Statement st = this.connexion().createStatement();
@@ -72,6 +96,21 @@ public class InfirmiereModel extends AccessDB{
 			e.printStackTrace();
 		}
 
+	}
+
+
+	public void updateInfirmiere(int id, String nom, String prenom, String numPro, int telPerso, int telPro) throws Exception {
+		
+		
+		try {
+			Statement statement = this.connexion().createStatement();
+			statement.executeUpdate("UPDATE infirmiere SET nom='" + nom + "', prenom='" + prenom + "', numeroProfessionnel='" + numPro + "', telPerso='" + telPerso + "', telPro='" + telPro + "' WHERE id=" + id);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			this.connexion().close();
+		}
+		
 	}
 
 }
