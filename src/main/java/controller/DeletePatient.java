@@ -18,7 +18,7 @@ public class DeletePatient extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		new PatientModel().delete(Integer.parseInt(req.getParameter("id")));
-		res.sendRedirect("patient");
+		res.sendRedirect("liste");
 	}
 
 }
