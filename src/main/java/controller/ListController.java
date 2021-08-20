@@ -17,14 +17,14 @@ import model.PatientModel;
 /**
  * Servlet implementation class PatientController
  */
-@WebServlet(name = "Patient", urlPatterns = { "/patient" })
-public class PatientController extends HttpServlet {
+@WebServlet(name = "List", urlPatterns = { "/liste" })
+public class ListController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public PatientController() {
+    public ListController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -48,7 +48,7 @@ public class PatientController extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		request.getRequestDispatcher("WEB-INF/patient.jsp").forward(request, response);
+		request.getRequestDispatcher("WEB-INF/liste.jsp").forward(request, response);
 		
 	}
 
