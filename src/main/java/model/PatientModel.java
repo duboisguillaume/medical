@@ -24,7 +24,6 @@ public class PatientModel extends AccessDB {
 		try {
 			result = statement.executeQuery("SELECT * FROM patient where status='1'");
 			while(result.next()) {
-				System.out.println(result.getInt("status"));
 					patients.add(new PatientEntity(
 							result.getInt("id"),
 							result.getInt("adresse_id"),
