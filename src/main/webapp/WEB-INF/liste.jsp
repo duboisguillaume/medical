@@ -39,7 +39,8 @@
 	</div>
 	
 	<div class="container">
-		<h2>Les infirmières</h2>
+		<h2>Les infirmier(e)s</h2>
+		<a href="addInfirmiere" class="btn btn-primary">+</a>
 		<table class="table">
 			<tr>
 				<th scope="row"> nom </th>

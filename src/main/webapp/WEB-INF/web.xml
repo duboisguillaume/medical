@@ -19,4 +19,10 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>AddInfirmiereController</display-name>
+    <servlet-name>AddInfirmiereController</servlet-name>
+    <servlet-class>controller.AddInfirmiereController</servlet-class>
+  </servlet>
 </web-app>
