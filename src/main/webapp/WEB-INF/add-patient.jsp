@@ -51,9 +51,7 @@
 		
 		<div class= "mb-3">
 			<label> Adresse :
-				<select>
-					<option selected></option>
-				</select>
+				<input type="text" name="patientAdresse">
 			</label>
 		</div>
 		
