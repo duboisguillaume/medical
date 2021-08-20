@@ -11,7 +11,7 @@ public class AccessDB {
 	
 	public AccessDB() {
 		this.url = "jdbc:mysql://localhost:3306/medical"; 
-		this.password = "1234";
+		this.password = "root";
 		this.username = "root";
 	}
 	

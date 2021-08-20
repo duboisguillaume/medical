@@ -1,76 +1,85 @@
-body{
+body {
 	width: 80%;
 	margin: auto;
 }
-h1{
+
+h1 {
 	margin: 35px auto;
-	padding-bottom : 20px;
+	padding-bottom: 20px;
 	margin-bottom: 60px;
 	font-weight: bold;
 	display: flex;
 	justify-content: center;
 	border-bottom: 2px solid grey;
 }
-.mesListes{
+
+.mesListes {
 	display: flex;
-	padding-bottom : 60px;
+	padding-bottom: 60px;
 	border-bottom: 2px solid grey;
 }
-.myHead{
+
+.myHead {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 }
-.add{
+
+.add {
 	font-size: 25px;
 	margin-right: 20px;
 	color: black;
-	transition : all 1s ease-in-out;
+	transition: all 1s ease-in-out;
 }
-.add:hover{
+
+.add:hover {
 	color: rgb(83, 169, 255);
 	transform: rotateZ(360deg);
 }
-.bloc{
+
+.bloc {
 	padding: 40px;
 	margin: 0 auto;
 }
-.blocPatients{
-	border-right: 2px solid rgb(178,178,178);
+
+.blocPatients {
+	border-right: 2px solid rgb(178, 178, 178);
 }
 
-@media screen and (max-width: 767px){
-	body{
+.blocDeplacement {
+	padding-bottom: 60px;
+	margin-bottom : 30px;
+	border-bottom: 2px solid grey;
+}
+
+@media screen and (max-width: 767px) {
+	body {
 		width: 95%;
 	}
-	h1{
+	h1 {
 		margin-bottom: 30px;
 	}
-	.mesListes{
+	.mesListes {
 		flex-direction: column;
-		padding-bottom : 30px;
+		padding-bottom: 30px;
 	}
-	.add{
+	.add {
 		font-size: 20px;
 	}
-	.bloc{
+	.bloc {
 		padding: 20px;
 	}
-	.blocPatients{
+	.blocPatients {
 		border-right: none;
-		border-bottom: 2px solid rgb(178,178,178);
+		border-bottom: 2px solid rgb(178, 178, 178);
 	}
-	th, td{
+	th, td {
 		font-size: 12px;
 	}
 }
 
-@media (min-width: 768px) and (max-width: 991px){
-	body{
+@media ( min-width : 768px) and (max-width: 991px) {
+	body {
 		width: 95%;
 	}
 }
-	
-	
-	
-	
