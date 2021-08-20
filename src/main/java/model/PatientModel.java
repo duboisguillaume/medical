@@ -22,10 +22,9 @@ public class PatientModel extends AccessDB {
 		ResultSet result;
 
 		try {
-			result = statement.executeQuery("SELECT * FROM patient");
+			result = statement.executeQuery("SELECT * FROM patient where status='1'");
 			while(result.next()) {
 				System.out.println(result.getInt("status"));
-				if(result.getInt("status")!=0) {
 					patients.add(new PatientEntity(
 							result.getInt("id"),
 							result.getInt("adresse_id"),
@@ -37,7 +36,6 @@ public class PatientModel extends AccessDB {
 							result.getInt("numeroSecuriteSocial")
 							));	
 				}
-			}
 
 		} catch (SQLException e) {
 			e.printStackTrace();

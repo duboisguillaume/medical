@@ -52,7 +52,7 @@
 				<td> ${ infirmiere.nom } </td>
 				<td> ${ infirmiere.prenom } </td>
 				<td> <a href="" class="btn btn-success btn-sm"><i class="bi bi-arrow-clockwise"></i></a>
-				<td> <a href="" class="btn btn-danger btn-sm"> X </a> </td>
+				<td> <a href="deleteInfirmiere?id=${ infirmiere.id }" class="btn btn-danger btn-sm"> X </a> </td>
 			
 			</tr>
 			</c:forEach>
