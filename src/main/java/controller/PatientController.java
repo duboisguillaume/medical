@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import Entity.InfirmiereEntity;
 import Entity.PatientEntity;
+import model.InfirmiereModel;
 import model.PatientModel;
 
 /**
@@ -33,10 +35,15 @@ public class PatientController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		PatientModel con = new PatientModel();
+		InfirmiereModel inf = new InfirmiereModel();
 		
 		try {
 			List<PatientEntity> patients = con.fetchAllPatient();
 			request.setAttribute("patients", patients);
+
+			List<InfirmiereEntity> infirmieres = inf.fetchAllInfirmiere();
+			request.setAttribute("infirmieres", infirmieres);
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -4,7 +4,7 @@ public class InfirmiereEntity {
 
 	private int id;
 	private int adresse_id;
-	private int numeroPro;
+	private int numeroProfessionnel;
 	private String nom;
 	private String prenom;
 	private int telPro;
@@ -13,12 +13,12 @@ public class InfirmiereEntity {
 	public InfirmiereEntity() {
 	};
 	
-	public InfirmiereEntity(int id, int adresse_id, int numeroPro, String nom, String prenom, int telPro,
+	public InfirmiereEntity(int id, int adresse_id, int numeroProfessionnel, String nom, String prenom, int telPro,
 			int telPerso) {
 		super();
 		this.id = id;
 		this.adresse_id = adresse_id;
-		this.numeroPro = numeroPro;
+		this.numeroProfessionnel = numeroProfessionnel;
 		this.nom = nom;
 		this.prenom = prenom;
 		this.telPro = telPro;
@@ -41,12 +41,12 @@ public class InfirmiereEntity {
 		this.adresse_id = adresse_id;
 	}
 
-	public int getNumeroPro() {
-		return numeroPro;
+	public int getNumeroProfessionnel() {
+		return numeroProfessionnel;
 	}
 
-	public void setNumeroPro(int numeroPro) {
-		this.numeroPro = numeroPro;
+	public void setNumeroProfessionnel(int numeroProfessionnel) {
+		this.numeroProfessionnel = numeroProfessionnel;
 	}
 
 	public String getNom() {
