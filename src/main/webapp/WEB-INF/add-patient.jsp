@@ -24,25 +24,42 @@
 			</label>
 		</div>
 		
-		<label> Date de naissance :
-			<input type="date" name="nom">
-		</label>
-		<label> Sexe :
-			<select class="form-select" aria-label="Default select example">
-			  <option selected>vous etes :</option>
-			  <option value="1">Un homme </option>
-			  <option value="2">Une femme</option>
-			</select>
-		</label>
-		<label> Numero de Securite Sociale :
-			<input type="number" name="nom">
-		</label>
-		<label> Adresse :
-			
-		</label>
-		<label> Nom de l'infirmiere :
-			
-		</label>
+		<div class= "mb-3" >
+			<label> Date de naissance :
+				<input type="date" name="nom">
+			</label>
+		</div>
+		
+		<div class= "mb-3">
+			<label> Sexe :
+				<select class="form-select" aria-label="Default select example">
+				  <option selected>vous etes :</option>
+				  <option value="1">Un homme </option>
+				  <option value="2">Une femme</option>
+				</select>
+			</label>
+		</div>
+		
+		<div class= "mb-3">
+			<label> Numero de Securite Sociale :
+				<input type="number" name="nom">
+			</label>
+		</div>
+		
+		<div class= "mb-3">
+			<label> Adresse :
+				
+			</label>
+		</div>
+		
+		<div class= "mb-3">
+			<label> Nom de l'infirmiere :
+				
+			</label>
+		</div>
+		
+		<button type="submit" class="btn btn-primary mb-3">Envoyer</button>
+		
 	</form>
 	
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
