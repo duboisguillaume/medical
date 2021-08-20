@@ -63,6 +63,10 @@ public class InfirmiereModel extends AccessDB{
 				infirmiere.setPrenom(result.getString("prenom"));
 				infirmiere.setTelPerso(result.getInt("telPerso"));
 				infirmiere.setTelPro(result.getInt("telPro"));
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				this.connexion().close();
 			}
       return infirmiere;
 	}
