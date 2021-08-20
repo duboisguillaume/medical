@@ -1,6 +1,8 @@
 package model;
 
 import Entity.InfirmiereEntity;
+import Entity.PatientEntity;
+
 import java.util.List;
 
 import java.sql.ResultSet;
@@ -13,7 +15,6 @@ public class InfirmiereModel extends AccessDB{
 	public InfirmiereModel() {
 		super();
 	}
-
 
 	public List<InfirmiereEntity> fetchAllInfirmiere() throws Exception {
 
@@ -37,7 +38,6 @@ public class InfirmiereModel extends AccessDB{
 							));	
 				}
 			}
-
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -45,6 +45,21 @@ public class InfirmiereModel extends AccessDB{
 		}
 
 		return infirmieres;
+	}
+	
+	public void addInfirmiere( int numeroProfessionnel, String nom, String prenom, int telPro, int telPerso) throws Exception{
+		
+		InfirmiereEntity patient = new InfirmiereEntity();
+		
+		Statement statement = this.connexion().createStatement();
+		
+		try {
+			statement.executeUpdate("INSERT INTO infirmiere (adresse_id, numeroProfessionnel, nom, prenom, telPro, telPerso) VALUES ( 4, " + numeroProfessionnel + ", '" + nom + "', '" + prenom + "', " + telPro + ", " + telPerso + " )");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			this.connexion().close();
+		}
 	}
 
 }
