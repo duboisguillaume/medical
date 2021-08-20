@@ -75,7 +75,7 @@ public class PatientModel extends AccessDB {
 	}
 
 	public void addPatient( String nom, String prenom, String sexe, String dateDeNaissance, int numeroSecuriteSocial, int infirmiere_id, String numero, String rue, int cp, String ville ) throws Exception {
-				
+			int adresse_id=addAdresse(numero, rue, cp, ville);
 			String query = "INSERT INTO patient (nom, prenom, sexe, dateDeNaissance, numeroSecuriteSocial, infirmiere_id, adresse_id  ) VALUES (?, ?, ?, ?, ?, ?, ?)";
 			
 			PreparedStatement pstmt = this.connexion().prepareStatement(query);
