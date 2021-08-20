@@ -49,11 +49,24 @@
 			</label>
 		</div>
 		
-		<div class= "mb-3">
-			<label> Adresse :
-				<select>
-					<option selected></option>
-				</select>
+		<h4>Adresse</h4>
+		<div class="mb-3">
+			
+			<label class="form-label">
+				Numero
+				<input type="text" class="form-control" name="numero">
+			</label>
+			<label class="form-label">
+				Rue
+				<input type="tel" class="form-control" name="rue">
+			</label>
+			<label class="form-label">
+				Code Postal
+				<input type="tel" class="form-control" name="cp">
+			</label>
+			<label class="form-label">
+				Ville
+				<input type="tel" class="form-control" name="ville">
 			</label>
 		</div>
 		
