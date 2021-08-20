@@ -12,7 +12,7 @@
 <body>
 	<h2>Ajouter un patient</h2>
 	
-	<form>
+	<form method="post" action="addPatient">
 		<div class= "mb-3">
 			<label> Nom :
 				<input type="text" name="nom" value="">

@@ -79,19 +79,27 @@ public class PatientModel extends AccessDB {
 	public void addPatient(int id, String nom, String prenom, String sexe, String dateDeNaissance, int numeroSecuriteSocial) throws Exception {
 		
 		
+		try {
+			String query = "INSERT INTO Users (nom, prenom, sexe, dateDeNaissance, numeroSecuriteSocial ) VALUES (?, ?, ?, ?,?)";
+			
+			PreparedStatement pstmt = this.connexion().prepareStatement(query);
+			pstmt.setString(1,nom);
+			pstmt.setString(2,prenom);
+			pstmt.setString(3,sexe);
+			pstmt.setString(4,dateDeNaissance);
+			pstmt.setInt(5,numeroSecuriteSocial);
+			System.out.println("HEREEEE");
+			pstmt.executeUpdate();
+			pstmt.close();
+		}catch (Exception e){
+			e.printStackTrace();	
+		}finally {
+			this.connexion().close();
+		}
 		
-		String query = "INSERT INTO Users (nom, prenom, sexe, dateDeNaissance, numeroSecuriteSocial ) VALUES (?, ?, ?, ?,?)";
 		
-		PreparedStatement pstmt = this.connexion().prepareStatement(query);
-		pstmt.setString(1,nom);
-		pstmt.setString(2,prenom);
-		pstmt.setString(3,sexe);
-		pstmt.setString(4,dateDeNaissance);
-		pstmt.setInt(5,numeroSecuriteSocial);
 	
-		pstmt.executeUpdate();
 		
-	
 }
 	
 	public void updatePatient(int id, String nom, String prenom, String sexe, String dateDeNaissance, int numeroSecuriteSocial) throws Exception {

@@ -38,7 +38,15 @@ public class AddPatientController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		request.getParameter("nom");
+		request.getParameter("prenom");
+		request.getParameter("sexe");
+		request.getParameter("dateDeNaissance");
+		request.getParameter("numeroSecuriteSociale");
+		request.getParameter("nameInfirmiere");
+		request.getParameter("adresseInfirmiere");
+		
+		
 	}
 
 }
