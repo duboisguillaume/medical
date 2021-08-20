@@ -10,7 +10,7 @@ public class AccessDB {
 	private String password;
 	
 	public AccessDB() {
-		this.url = "jdbc:mysql://localhost:3310/medical"; 
+		this.url = "jdbc:mysql://localhost:3306/medical"; 
 		this.password = "root";
 		this.username = "root";
 	}

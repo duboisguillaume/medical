@@ -23,9 +23,8 @@ public class InfirmiereModel extends AccessDB{
 		ResultSet result;
 
 		try {
-			result = statement.executeQuery("SELECT * FROM infirmiere");
+			result = statement.executeQuery("SELECT * FROM infirmiere where status='1'");
 			while(result.next()) {
-				if(result.getInt("status")!=0) {
 					infirmieres.add(new InfirmiereEntity(
 							result.getInt("id"),
 							result.getInt("adresse_id"),
@@ -35,7 +34,6 @@ public class InfirmiereModel extends AccessDB{
 							result.getInt("telPro"),
 							result.getInt("telPerso")
 							));	
-				}
 			}
 
 		} catch (SQLException e) {
@@ -45,6 +43,20 @@ public class InfirmiereModel extends AccessDB{
 		}
 
 		return infirmieres;
+	}
+	
+	public void delete(int id)  {
+		try {
+			Statement st = this.connexion().createStatement();
+			st.executeUpdate("UPDATE infirmiere set status='0' where id="+id+"");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 	}
 
 }
