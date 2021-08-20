@@ -75,8 +75,6 @@ public class PatientModel extends AccessDB {
 	}
 	
 	public void updatePatient(int id, String nom, String prenom, String sexe, String dateDeNaissance, int numeroSecuriteSocial) throws Exception {
-
-		PatientEntity patient = new PatientEntity();
 		
 		Statement statement = this.connexion().createStatement();
 		

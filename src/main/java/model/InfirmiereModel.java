@@ -1,6 +1,8 @@
 package model;
 
 import Entity.InfirmiereEntity;
+import Entity.PatientEntity;
+
 import java.util.List;
 
 import java.sql.ResultSet;
@@ -45,6 +47,33 @@ public class InfirmiereModel extends AccessDB{
 		return infirmieres;
 	}
 	
+	public InfirmiereEntity oneInfirmiere(int id) throws Exception {
+
+		InfirmiereEntity infirmiere = new InfirmiereEntity();
+		
+		Statement statement = this.connexion().createStatement();
+		ResultSet result;
+		
+		try {
+			result = statement.executeQuery("SELECT * FROM infirmiere WHERE id=" + id);
+			while(result.next()) {
+				infirmiere.setId(id);
+				infirmiere.setAdresse_id(result.getInt("id"));
+				infirmiere.setNumeroProfessionnel(result.getInt("numeroProfessionnel"));
+				infirmiere.setNom(result.getString("nom"));
+				infirmiere.setPrenom(result.getString("prenom"));
+				infirmiere.setTelPerso(result.getInt("telPerso"));
+				infirmiere.setTelPro(result.getInt("telPro"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			this.connexion().close();
+		}
+		
+		return infirmiere;
+	}
+	
 	public void delete(int id)  {
 		try {
 			Statement st = this.connexion().createStatement();
@@ -57,6 +86,21 @@ public class InfirmiereModel extends AccessDB{
 			e.printStackTrace();
 		}
 
+	}
+
+
+	public void updateInfirmiere(int id, String nom, String prenom, String numPro, int telPerso, int telPro) throws Exception {
+		
+		
+		try {
+			Statement statement = this.connexion().createStatement();
+			statement.executeUpdate("UPDATE infirmiere SET nom='" + nom + "', prenom='" + prenom + "', numeroProfessionnel='" + numPro + "', telPerso='" + telPerso + "', telPro='" + telPro + "' WHERE id=" + id);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			this.connexion().close();
+		}
+		
 	}
 
 }
