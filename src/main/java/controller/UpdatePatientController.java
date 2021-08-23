@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -8,7 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import Entity.InfirmiereEntity;
 import Entity.PatientEntity;
+import model.InfirmiereModel;
 import model.PatientModel;
 
 /**
@@ -32,10 +36,18 @@ public class UpdatePatientController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		PatientModel pm = new PatientModel();
+		InfirmiereModel inf = new InfirmiereModel();
+		InfirmiereModel inf2 = new InfirmiereModel();
 		
+		List<InfirmiereEntity> infirmieres = new ArrayList<>();
 		try {
 			PatientEntity patient = pm.onePatient(Integer.parseInt(request.getParameter("id")));
 			request.setAttribute("patient", patient);			
+
+			infirmieres = inf.fetchAllInfirmiere();
+			InfirmiereEntity infirmiere2 = inf.oneInfirmiere(patient.getInfirmiere_id());
+			request.setAttribute("infirmieres", infirmieres);
+			request.setAttribute("oneInf", infirmiere2);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
