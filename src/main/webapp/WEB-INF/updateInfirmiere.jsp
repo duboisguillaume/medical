@@ -41,8 +41,28 @@
 		<div class="mb-3">
 		  <label class="form-label">
 		  	Téléphone Pro
-		  	<input type="number" class="form-control" value="${infirmiere.telPro }" name="telPro">
+		  	<input type="number" class="form-control" value="${infirmiere.telPro}"  name="telPro">
 		  </label>
+		</div>
+		<div class="mb-3">
+			Adresse
+		  <label class="form-label">
+		  	Numero
+		  	<input type="text" class="form-control" value="${infirmiere.numero }" name="numero">
+		  </label>
+		  <label class="form-label">
+		  	Rue
+		  	<input type="text" class="form-control" value="${infirmiere.rue }" name="rue">
+		  </label>
+		  <label class="form-label">
+		  	Code Postal
+		  	<input type="number" class="form-control" value="${infirmiere.cp }" name="cp">
+		  </label>
+		  <label class="form-label">
+		  	Ville
+		  	<input type="text" class="form-control" value="${infirmiere.ville }" name="ville">
+		  </label>
+		  
 		</div>
 		<div class="col-auto">
     		<button type="submit" class="btn btn-primary mb-3">Envoyer</button>

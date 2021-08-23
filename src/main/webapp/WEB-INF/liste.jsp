@@ -1,12 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <!-- CSS only -->
 <link
@@ -85,17 +85,17 @@
 
 	<div class="container bloc blocDeplacement">
 		<div class="myHead">
-			<h2>Les deplacements</h2>
+			<h2>Les déplacements</h2>
 			<a href="addDeplacement"><i class="fas fa-plus add"></i></a>
 		</div>
 		<table class="table tableDep">
 			<tr>
 				<th scope="row">Nom patient</th>
-				<th scope="row">Prenom patient</th>
+				<th scope="row">Prénom patient</th>
 				<th scope="row">Date</th>
 				<th scope="row">Cout</th>
 				<th scope="row">Nom infirmier</th>
-				<th scope="row">Prenom infirmier</th>
+				<th scope="row">Prénom infirmier</th>
 				<th></th>
 				<th></th>
 			</tr>

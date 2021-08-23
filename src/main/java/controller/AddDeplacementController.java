@@ -1,7 +1,9 @@
 package controller;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -11,20 +13,22 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import Entity.InfirmiereEntity;
+import Entity.PatientEntity;
+import model.DeplacementModel;
 import model.InfirmiereModel;
 import model.PatientModel;
 
 /**
- * Servlet implementation class AddPatientController
+ * Servlet implementation class AddDeplacementController
  */
-@WebServlet("/addPatient")
-public class AddPatientController extends HttpServlet {
+@WebServlet("/addDeplacement")
+public class AddDeplacementController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AddPatientController() {
+    public AddDeplacementController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,47 +38,38 @@ public class AddPatientController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
+		PatientModel pm = new PatientModel();
 		InfirmiereModel inf = new InfirmiereModel();
 		
+		List<PatientEntity> patients = new ArrayList<>();
 		List<InfirmiereEntity> infirmieres = new ArrayList<>();
 		try {
+			patients = pm.fetchAllPatient();
 			infirmieres = inf.fetchAllInfirmiere();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		request.setAttribute("patients", patients);
 		request.setAttribute("infirmieres", infirmieres);
 		
-		request.getRequestDispatcher("WEB-INF/add-patient.jsp").forward(request, response);
-		
-		
+		request.getRequestDispatcher("WEB-INF/addDeplacement.jsp").forward(request, response);
 	}
-	
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String nom = request.getParameter("nom");
-		String prenom =request.getParameter("prenom");
-		String sexe = request.getParameter("sexe");
-		String dateDeNaissance=request.getParameter("dateDeNaissance");
-		String numeroSecuriteSociale =request.getParameter("numeroSecuriteSociale");
-		String infirmiere_id =request.getParameter("nameInfirmiere");
+		String idPatient = request.getParameter("idPatient");
+		LocalDate date = LocalDate.parse(request.getParameter("date"));
+		String cout = request.getParameter("cout");
+		String idInfirmiere = request.getParameter("idInfirmiere");
 		
-		String numero = request.getParameter("numero");
-		String rue = request.getParameter("rue");
-		String cp = request.getParameter("cp");
-		String ville = request.getParameter("ville");
-		
-		System.out.println(numeroSecuriteSociale + " " + rue );
-		
-		PatientModel pm = new PatientModel();
+		DeplacementModel dm = new DeplacementModel();
 		
 		try {
-			pm.addPatient(nom,prenom,sexe,dateDeNaissance,Integer.parseInt(numeroSecuriteSociale), Integer.parseInt(infirmiere_id), numero,rue,Integer.parseInt(cp),ville );
+			dm.addDeplacement(Integer.parseInt(idPatient), date, Integer.parseInt(cout), Integer.parseInt(idInfirmiere));
 			response.sendRedirect("liste");
 		} catch (Exception e ){
 			e.printStackTrace();

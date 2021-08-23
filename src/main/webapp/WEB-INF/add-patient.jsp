@@ -7,16 +7,24 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<<<<<<< HEAD
 <title>Ajouter un patient</title>
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 <link href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" rel="stylesheet">
  <link rel="stylesheet" href="./css/formAddInfirmiere.css" type="text/css">
+=======
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+<link href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" rel="stylesheet">
+ <link rel="stylesheet" href="./css/formAddPatient.css" type="text/css">
+<title>Ajouter un patient</title>
+>>>>>>> develop
 
 </head>
 <body>
-	<h2>Ajouter un patient</h2>
+	<h1>Ajouter un patient</h1>
 	
 	<form method="post" action="addPatient">
 		<div class= "mb-3 divLab">
@@ -51,12 +59,24 @@
 				<input type="number" name="numeroSecuriteSociale">
 			</label>
 		</div>
-		
-		<div class= "mb-3 divLab">
-			<label> Adresse :
-				<select>
-					<option selected></option>
-				</select>
+		<h4>Adresse</h4>
+		<div class="mb-3 divLab">
+			
+			<label class="form-label">
+				Numero
+				<input type="text" class="form-control" name="numero">
+			</label>
+			<label class="form-label">
+				Rue
+				<input type="tel" class="form-control" name="rue">
+			</label>
+			<label class="form-label">
+				Code Postal
+				<input type="tel" class="form-control" name="cp">
+			</label>
+			<label class="form-label">
+				Ville
+				<input type="tel" class="form-control" name="ville">
 			</label>
 		</div>
 		
