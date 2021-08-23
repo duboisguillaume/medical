@@ -22,6 +22,22 @@ form{
 	margin-top: 20px;
 	margin-left: 40px;
 	width: 350px;
+	display: flex;
+}
+.mySelect{
+	margin-top: 20px;
+	margin-left: 40px;
+	width: 350px;
+	display: flex;
+}
+.formAdresse{
+	display: flex;
+	flex-direction: column;
+}
+.adresse{
+	font-weigth: bold;
+	font-size: 20px;
+	margin-bottom: 10px;
 }
 .btn-send{
 	width: 200px;
