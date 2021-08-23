@@ -22,7 +22,7 @@ public class DeplacementModel extends AccessDB {
 		ResultSet result;
 
 		try {
-			result = statement.executeQuery("Select d.id, p.nom, p.prenom, d.date, d.cout, i.nom, i.prenom from deplacement d INNER JOIN patient p ON p.id = d.patient_id INNER JOIN infirmiere i ON i.id = d.infirmiere_id");
+			result = statement.executeQuery("Select d.id, p.nom, p.prenom, d.date, d.cout, i.nom, i.prenom from deplacement d INNER JOIN patient p ON p.id = d.patient_id INNER JOIN infirmiere i ON i.id = d.infirmiere_id where statut=1");
 			while(result.next()) {
 					deplacements.add(new DeplacementEntity(
 							result.getInt("d.id"),
@@ -41,5 +41,19 @@ public class DeplacementModel extends AccessDB {
 		}
 
 		return deplacements;
+	}
+	
+	public void deleteDeplacement(int id_patient, int id_infirmiere)  {
+		try {
+			Statement st = this.connexion().createStatement();
+			st.executeUpdate("UPDATE " );
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 	}
 }
