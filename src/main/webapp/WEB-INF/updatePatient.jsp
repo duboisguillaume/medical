@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,18 +50,17 @@
 		  	<input type="number" class="form-control" value="${patient.numeroSecuriteSocial}"  name="numeroSecuriteSocial">
 		  </label>
 		</div>
-		<div class="mb-3">
-		  <label class="form-label">
-		  	Nom de l'infirmière
-		  	<input type="number" class="form-control" value="A mettre !!!!" name="nameInfirmiere">
-		  </label>
-		</div>
-		<div class="mb-3">
-		  <label class="form-label">
-		  	Adresse de l'infirmière
-		  	<input type="number" class="form-control" value="A mettre !!!!" name="adresseInfirmiere">
-		  </label>
-		</div>
+
+		<div class= "mb-3 divLab">
+			<label> Infirmiere :
+				<select class="form-select" aria-label="Default select example" name="idInfirmiere">
+    				<option selected value="${oneInf.nom} ${oneInf.prenom}">--${oneInf.nom} ${oneInf.prenom}--</option>
+					<c:forEach items="${ infirmieres }" var="infirmiere">
+							<option value="${infirmiere.id}" name="infirmiere.id" >${infirmiere.nom} ${infirmiere.prenom}</option>
+					</c:forEach>
+				</select>
+			</label>
+
 		<div class="col-auto">
     		<button type="submit" class="btn btn-primary mb-3">Envoyer</button>
   		</div>
