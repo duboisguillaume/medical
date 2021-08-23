@@ -1,0 +1,55 @@
+@charset "ISO-8859-1";
+
+body{
+	width: 80%;
+	margin: auto;
+}
+h1{
+	margin: 35px auto;
+	padding-bottom : 20px;
+	margin-bottom: 60px;
+	font-weight: bold;
+	display: flex;
+	justify-content: center;
+	border-bottom: 2px solid grey;
+}
+form{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.divLab input{
+	margin-top: 20px;
+	margin-left: 40px;
+	width: 350px;
+}
+.formAdresse{
+	display: flex;
+	flex-direction: column;
+}
+.adresse{
+	font-weigth: bold;
+	font-size: 20px;
+	margin-bottom: 10px;
+}
+.btn-send{
+	width: 200px;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+@media screen and (max-width: 767px){
+	body{
+		width: 95%;
+	}
+	h1{
+		font-size: 23px;
+		margin-bottom: 30px;
+	}
+	.divLab{
+		width: 100%;
+	}
+	.divLab input{
+		width: 230px;
+	}
+}
