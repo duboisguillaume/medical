@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+  <servlet>
+    <description></description>
+    <display-name>UpdateController</display-name>
+    <servlet-name>UpdateController</servlet-name>
+    <servlet-class>controller.UpdateController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateController</servlet-name>
+    <url-pattern>/updateController</url-pattern>
+  </servlet-mapping>
+  <display-name>medical</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>AddInfirmiereController</display-name>
+    <servlet-name>AddInfirmiereController</servlet-name>
+    <servlet-class>controller.AddInfirmiereController</servlet-class>
+  </servlet>
+  <servlet>
+    <description></description>
+    <display-name>AddDeplacementController</display-name>
+    <servlet-name>AddDeplacementController</servlet-name>
+    <servlet-class>controller.AddDeplacementController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddDeplacementController</servlet-name>
+    <url-pattern>/addDeplacementController</url-pattern>
+  </servlet-mapping>
+</web-app>

@@ -11,6 +11,9 @@ public class PatientEntity {
 	private String sexe;
 	private int numeroSecuriteSocial;
 	
+	public PatientEntity() {
+	};
+	
 	public PatientEntity(int id, int adresse_id, int infirmiere_id, String nom, String prenom, String dateDeNaissance,
 			String sexe, int numeroSecuriteSocial) {
 		super();
