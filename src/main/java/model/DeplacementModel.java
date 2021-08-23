@@ -45,6 +45,18 @@ public class DeplacementModel extends AccessDB {
 
 		return deplacements;
 	}
+	
+	public void deleteDeplacement(int id)  {
+		try {
+			Statement st = this.connexion().createStatement();
+			st.executeUpdate("update deplacement set status='0' where id="+id+"" );
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	public void addDeplacement( int idPatient, LocalDate date, double cout, int idInfirmiere) throws Exception {
 		String query = "INSERT INTO deplacement (patient_id, date, cout, infirmiere_id) VALUES (?, ?, ?, ?)";
