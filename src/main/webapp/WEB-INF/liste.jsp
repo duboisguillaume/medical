@@ -20,15 +20,19 @@
 	rel="stylesheet">
 <link rel="stylesheet" href="./css/liste.css" type="text/css">
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+/>
 
 <title>listes patients et infirmiers</title>
 </head>
+
+
 <body>
 
-	<h1>Listes</h1>
+	<h1 class="animate__animated animate__fadeInLeftBig">Listes</h1>
 
 	<div class="mesListes">
-		<div class="container bloc blocPatients">
+		<div class="container bloc blocPatients animate__animated animate__backInLeft">
 			<div class="myHead">
 				<h2 class="patients">Les patients</h2>
 				<a href="addPatient"><i class="fas fa-plus add"></i></a>
@@ -55,7 +59,7 @@
 			</table>
 		</div>
 
-		<div class="container bloc blocInfirmieres">
+		<div class="container bloc blocInfirmieres animate__animated animate__backInRight">
 			<div class="myHead">
 				<h2>Les infirmier(e)s</h2>
 				<a href="addInfirmiere"><i class="fas fa-plus add"></i></a>
@@ -83,7 +87,7 @@
 		</div>
 	</div>
 
-	<div class="container bloc blocDeplacement">
+	<div class="container bloc blocDeplacement animate__animated animate__fadeInBottomRight">
 		<div class="myHead">
 			<h2>Les déplacements</h2>
 			<a href="addDeplacement"><i class="fas fa-plus add"></i></a>

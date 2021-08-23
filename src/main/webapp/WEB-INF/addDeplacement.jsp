@@ -18,11 +18,15 @@
 <link href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
 	rel="stylesheet">
 <link rel="stylesheet" href="./css/formAddDeplacement.css" type="text/css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+/>
+
 <title>Ajouter un déplacement</title>
 
 </head>
 <body>
-	<h1>Ajouter un déplacement</h1>
+	<h1 class="animate__animated animate__fadeInLeftBig">Ajouter un déplacement</h1>
 	
 	<form method="post" action="addDeplacement">		
 		<div class= "mb-3 divLab">

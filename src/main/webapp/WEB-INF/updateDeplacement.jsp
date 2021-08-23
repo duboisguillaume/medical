@@ -6,6 +6,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
+ 
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+/>
+
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
@@ -17,10 +21,11 @@
 <link href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
 	rel="stylesheet">
 <link rel="stylesheet" href="./css/formAddDeplacement.css" type="text/css">
+
 <title>Modifier un deplacement</title>
 </head>
 <body>
-	<h1>Modifier deplacement </h1>
+	<h1 class="animate__animated animate__fadeInRightBig">Modifier deplacement </h1>
 	
 	<form method="POST" action="updateDeplacement">
 	<div class= "mb-3 divLab">

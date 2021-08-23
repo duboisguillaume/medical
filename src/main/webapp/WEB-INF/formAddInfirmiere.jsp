@@ -10,10 +10,13 @@
 <link href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" rel="stylesheet">
  <link rel="stylesheet" href="./css/formAddInfirmiere.css" type="text/css">
  
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+/>
+ 
 <title>Ajouter un infirmier</title>
 </head>
 <body>
-	<h1>Ajouter un(e) infirmier(e)</h1>
+	<h1 class="animate__animated animate__fadeInLeftBig">Ajouter un(e) infirmier(e)</h1>
 	
 	<form method="POST" action="addInfirmiere">
 		<div class="mb-3 divLab">
