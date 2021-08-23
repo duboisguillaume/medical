@@ -18,10 +18,14 @@
 <link href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
 	rel="stylesheet">
 <link rel="stylesheet" href="./css/updatePatient.css" type="text/css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+/>
+
 <title>Modifier un patient</title>
 </head>
 <body>
-	<h1>Modifier le patient ${patient.nom} ${patient.prenom} </h1>
+	<h1 class="animate__animated animate__fadeInRightBig">Modifier le patient ${patient.nom} ${patient.prenom} </h1>
 	
 	<form method="POST" action="updatePatient">
 		<div class="mb-3 divLab">
