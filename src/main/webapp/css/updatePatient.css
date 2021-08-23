@@ -43,6 +43,7 @@ form{
 	width: 200px;
 	font-size: 20px;
 	font-weight: bold;
+	margin-top: 20px;
 }
 
 @media screen and (max-width: 767px){
