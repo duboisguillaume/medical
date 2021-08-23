@@ -25,4 +25,14 @@
     <servlet-name>AddInfirmiereController</servlet-name>
     <servlet-class>controller.AddInfirmiereController</servlet-class>
   </servlet>
+  <servlet>
+    <description></description>
+    <display-name>AddDeplacementController</display-name>
+    <servlet-name>AddDeplacementController</servlet-name>
+    <servlet-class>controller.AddDeplacementController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddDeplacementController</servlet-name>
+    <url-pattern>/addDeplacementController</url-pattern>
+  </servlet-mapping>
 </web-app>

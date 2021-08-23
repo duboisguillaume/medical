@@ -1,7 +1,9 @@
 package controller;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -12,20 +14,21 @@ import javax.servlet.http.HttpServletResponse;
 
 import Entity.InfirmiereEntity;
 import Entity.PatientEntity;
+import model.DeplacementModel;
 import model.InfirmiereModel;
 import model.PatientModel;
 
 /**
- * Servlet implementation class UpdateController
+ * Servlet implementation class AddDeplacementController
  */
-@WebServlet(name = "UpdatePatient", urlPatterns = { "/updatePatient" })
-public class UpdatePatientController extends HttpServlet {
+@WebServlet("/addDeplacement")
+public class AddDeplacementController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UpdatePatientController() {
+    public AddDeplacementController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,49 +37,43 @@ public class UpdatePatientController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		// TODO Auto-generated method stub
 		PatientModel pm = new PatientModel();
 		InfirmiereModel inf = new InfirmiereModel();
-		InfirmiereModel inf2 = new InfirmiereModel();
 		
+		List<PatientEntity> patients = new ArrayList<>();
 		List<InfirmiereEntity> infirmieres = new ArrayList<>();
 		try {
-			PatientEntity patient = pm.onePatient(Integer.parseInt(request.getParameter("id")));
-			request.setAttribute("patient", patient);			
-
+			patients = pm.fetchAllPatient();
 			infirmieres = inf.fetchAllInfirmiere();
-			InfirmiereEntity infirmiere2 = inf.oneInfirmiere(patient.getInfirmiere_id());
-			request.setAttribute("infirmieres", infirmieres);
-			request.setAttribute("oneInf", infirmiere2);
 		} catch (Exception e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
-		request.getRequestDispatcher("WEB-INF/updatePatient.jsp").forward(request, response);
+		request.setAttribute("patients", patients);
+		request.setAttribute("infirmieres", infirmieres);
+		
+		request.getRequestDispatcher("WEB-INF/addDeplacement.jsp").forward(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String id = request.getParameter("id");
-		String nom = request.getParameter("nom");
-		String prenom = request.getParameter("prenom");
-		String sexe = request.getParameter("sexe");
-		String dateDeNaissance = request.getParameter("dateDeNaissance");
-		String numeroSecuriteSocial = request.getParameter("numeroSecuriteSocial");
-		//request.getParameter("nameInfirmiere");
-		//request.getParameter("adresseInfirmiere");
-		PatientModel pm = new PatientModel();
+		// TODO Auto-generated method stub
+		String idPatient = request.getParameter("idPatient");
+		LocalDate date = LocalDate.parse(request.getParameter("date"));
+		String cout = request.getParameter("cout");
+		String idInfirmiere = request.getParameter("idInfirmiere");
+		
+		DeplacementModel dm = new DeplacementModel();
 		
 		try {
-			pm.updatePatient(Integer.parseInt(id), nom, prenom, sexe, dateDeNaissance, Integer.parseInt(numeroSecuriteSocial));	
+			dm.addDeplacement(Integer.parseInt(idPatient), date, Integer.parseInt(cout), Integer.parseInt(idInfirmiere));
 			response.sendRedirect("liste");
-		} catch (Exception e) {
+		} catch (Exception e ){
 			e.printStackTrace();
 		}
-
-		
 	}
 
 }
