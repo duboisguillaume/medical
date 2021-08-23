@@ -94,7 +94,7 @@ public class DeplacementModel extends AccessDB {
 		} finally {
 			this.connexion().close();
 		}
-		
+	}
 		
 	public void deleteDeplacement(int id)  {
 		try {
