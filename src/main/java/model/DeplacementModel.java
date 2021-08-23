@@ -57,6 +57,7 @@ public class DeplacementModel extends AccessDB {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
 
 	public void addDeplacement( int idPatient, LocalDate date, double cout, int idInfirmiere) throws Exception {
 		String query = "INSERT INTO deplacement (patient_id, date, cout, infirmiere_id) VALUES (?, ?, ?, ?)";

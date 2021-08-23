@@ -46,7 +46,7 @@
 						<td>${ patient.prenom }</td>
 						<td><a href="updatePatient?id=${patient.id}"
 							class="btn btn-success btn-sm"><i
-								class="bi bi-arrow-clockwise"></i></a>
+								class="bi bi-arrow-clockwise monBouton"></i></a>
 						<td><a href="deletePatient?id=${patient.id}"
 							class="btn btn-danger btn-sm"><i class="fas fa-times"></i> </a></td>
 
@@ -104,7 +104,7 @@
 					<td>${ deplacement.nomPatient }</td>
 					<td>${ deplacement.prenomPatient }</td>
 					<td>${ deplacement.date }</td>
-					<td>${ deplacement.cout } e</td>
+					<td>${ deplacement.cout }e</td>
 					<td>${ deplacement.nomInfirmiere }</td>
 					<td>${ deplacement.prenomInfirmiere }</td>
 					<td><a href="updateDeplacement?id=${deplacement.id}"

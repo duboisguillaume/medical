@@ -17,7 +17,7 @@
 	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 <link href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
 	rel="stylesheet">
-<link rel="stylesheet" href="./css/formAddPatient.css" type="text/css">
+<link rel="stylesheet" href="./css/formAddDeplacement.css" type="text/css">
 <title>Ajouter un déplacement</title>
 
 </head>

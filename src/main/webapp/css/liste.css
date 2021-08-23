@@ -31,7 +31,6 @@ h1 {
 	color: black;
 	transition: all 1s ease-in-out;
 }
-
 .add:hover {
 	color: rgb(83, 169, 255);
 	transform: rotateZ(360deg);
