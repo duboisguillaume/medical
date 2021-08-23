@@ -18,19 +18,20 @@
 	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 <link href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
 	rel="stylesheet">
-<link rel="stylesheet" href="./css/formAddPatient.css"
-	type="text/css">
+<link rel="stylesheet" href="./css/formAddPatient.css" type="text/css">
 </head>
 <body>
 	<h1>Ajouter un patient</h1>
 
 	<form method="post" action="addPatient">
 		<div class="mb-3 divLab">
-			<label> Nom : <input type="text" class="form-control" name="nom" value="">
+			<label> Nom : <input type="text" class="form-control"
+				name="nom" value="">
 			</label>
 		</div>
 		<div class="mb-3 divLab">
-			<label> Prenom : <input type="text" class="form-control" name="prenom">
+			<label> Prenom : <input type="text" class="form-control"
+				name="prenom">
 			</label>
 		</div>
 
@@ -72,10 +73,12 @@
 		</div>
 
 		<div class="mb-3 divLab">
-			<label> Nom de l'infirmiere : <select class="form-select mySelect"
-				aria-label="Default select example" name="nameInfirmiere">
+			<label> Nom de l'infirmiere : <select
+				class="form-select mySelect" aria-label="Default select example"
+				name="nameInfirmiere">
 					<c:forEach items="${ infirmieres }" var="infirmiere">
-						<option selected value="${infirmiere.id}" class="form-control" name="infirmiere_id">${infirmiere.nom}</option>
+						<option selected value="${infirmiere.id}" class="form-control"
+							name="infirmiere_id">${infirmiere.nom}</option>
 					</c:forEach>
 			</select>
 			</label>
