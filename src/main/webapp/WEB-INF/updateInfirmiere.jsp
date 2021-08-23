@@ -8,62 +8,73 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 <title>Modifier une infirmiere</title>
+<link rel="stylesheet" href="./css/formUpdateInfirmiere.css" type="text/css">
 </head>
 <body>
 	<h1>Modifier l'infirmiere ${infirmiere.nom} ${infirmiere.prenom} </h1>
 	
 	<form method="POST" action="updateInfirmiere">
-		<div class="mb-3">
+		<div class="mb-3 divLab">
 			<input value="${infirmiere.id}" name="id" hidden/>
 		  <label class="form-label">
 		  	Nom 
 		  	<input type="text" class="form-control" value="${infirmiere.nom}" name="nom">
 		  </label>
 		</div>
-		<div class="mb-3">
+		<div class="mb-3 divLab">
 		  <label class="form-label">
 		  	Prénom
 		  	<input type="text" class="form-control" value="${infirmiere.prenom}" name="prenom">
 		  </label>
 		</div>
-		<div class="mb-3">
+		<div class="mb-3 divLab">
 		  <label class="form-label">
 		  	Numéro Professionnel
 		  	<input type="number" class="form-control" value="${infirmiere.numeroProfessionnel}" name="numeroProfessionnel">
 		  </label>
 		</div>
-		<div class="mb-3">
+		<div class="mb-3 divLab">
 		  <label class="form-label">
 		  	Téléphone Perso
 		  	<input type="number" class="form-control" value="${infirmiere.telPerso}"  name="telPerso">
 		  </label>
 		</div>
-		<div class="mb-3">
+		<div class="mb-3 divLab">
 		  <label class="form-label">
 		  	Téléphone Pro
 		  	<input type="number" class="form-control" value="${infirmiere.telPro}"  name="telPro">
 		  </label>
 		</div>
-		<div class="mb-3">
-			Adresse
-		  <label class="form-label">
-		  	Numero
-		  	<input type="text" class="form-control" value="${infirmiere.numero }" name="numero">
-		  </label>
-		  <label class="form-label">
-		  	Rue
-		  	<input type="text" class="form-control" value="${infirmiere.rue }" name="rue">
-		  </label>
-		  <label class="form-label">
-		  	Code Postal
-		  	<input type="number" class="form-control" value="${infirmiere.cp }" name="cp">
-		  </label>
-		  <label class="form-label">
-		  	Ville
-		  	<input type="text" class="form-control" value="${infirmiere.ville }" name="ville">
-		  </label>
+		
+			<h4>Adresse</h4>
+			<div class="mb-3 divLab"> 
+				<label class="form-label">
+			  	Numero
+			  	</label>
+			  	<input type="text" class="form-control" value="${infirmiere.numero }" name="numero">
+			</div>
 		  
-		</div>
+		  <div class="mb-3 divLab">
+			  <label class="form-label">
+			  	Rue
+			  	<input type="text" class="form-control" value="${infirmiere.rue }" name="rue">
+			  </label>
+		  </div>
+		  
+		  <div class="mb-3 divLab">
+			  <label class="form-label">
+			  	Code Postal
+			  	<input type="number" class="form-control" value="${infirmiere.cp }" name="cp">
+			  </label>
+		  </div>
+		  
+		  <div class="mb-3 divLab">
+			   <label class="form-label">
+			  	Ville
+			  	<input type="text" class="form-control" value="${infirmiere.ville }" name="ville">
+			  </label>
+		  </div>
+		
 		<div class="col-auto">
     		<button type="submit" class="btn btn-primary mb-3">Envoyer</button>
   		</div>
