@@ -15,7 +15,7 @@
 
 </head>
 <body>
-	<h2>Ajouter un patient</h2>
+	<h1>Ajouter un patient</h1>
 	
 	<form method="post" action="addPatient">
 		<div class= "mb-3 divLab">

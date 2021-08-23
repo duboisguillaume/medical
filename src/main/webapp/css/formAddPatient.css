@@ -1,3 +1,5 @@
+@charset "ISO-8859-1";
+
 body{
 	width: 80%;
 	margin: auto;
@@ -20,15 +22,7 @@ form{
 	margin-top: 20px;
 	margin-left: 40px;
 	width: 350px;
-}
-.formAdresse{
 	display: flex;
-	flex-direction: column;
-}
-.adresse{
-	font-weigth: bold;
-	font-size: 20px;
-	margin-bottom: 10px;
 }
 .btn-send{
 	width: 200px;
