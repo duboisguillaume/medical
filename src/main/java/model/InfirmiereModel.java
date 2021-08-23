@@ -58,7 +58,7 @@ public class InfirmiereModel extends AccessDB{
 			result = statement.executeQuery("SELECT * FROM infirmiere as i, adresse as a WHERE i.adresse_id=a.id and i.id=" + id);
 			while(result.next()) {
 				infirmiere.setId(id);
-				infirmiere.setAdresse_id(result.getInt("id"));
+				infirmiere.setAdresse_id(result.getInt("adresse_id"));
 				infirmiere.setNumeroProfessionnel(result.getInt("numeroProfessionnel"));
 				infirmiere.setNom(result.getString("nom"));
 				infirmiere.setPrenom(result.getString("prenom"));
